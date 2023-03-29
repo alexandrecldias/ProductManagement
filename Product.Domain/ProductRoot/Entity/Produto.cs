@@ -13,6 +13,7 @@ namespace Product.Domain.ProductRoot.Entity
 		public bool ativo;
 		public DateTime dataFabricao;
 		public DateTime dataValidade;
-		public int idFornecedor;
+		public string cnpj;
+		public string descricaoFornecedor;
 	}
 }

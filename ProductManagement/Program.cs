@@ -11,6 +11,9 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using AutoMapper;
 using Product.Api.AutoMapper;
 using Product.Api.Configuration;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +40,7 @@ builder.Services.AddControllers()
 	{
 		options.JsonSerializerOptions.PropertyNamingPolicy = null;
 	});
+
 
 //var config = new MapperConfiguration(cfg =>
 //{

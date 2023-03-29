@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Utils
+﻿namespace Utils
 {
-	public class FiltroGenericoDto<T>
+	public class FiltroGenericoDtoBase<T>
 	{
 		public string ValorParaFiltrar { get; set; }
 		public string FiltroGenerico { get; set; }
@@ -15,8 +9,9 @@ namespace Utils
 		public int Total { get; set; }
 		public List<T> Valores { get; set; }
 		public int Id { get; set; }
-
 		public string OrdemOrdenacao { get; set; }
 		public string CampoOrdenacao { get; set; }
+		public string CampoFiltro { get; set; }
+		public string TipoCampoFiltro { get; set; }
 	}
 }

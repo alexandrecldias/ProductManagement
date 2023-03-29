@@ -45,6 +45,13 @@ namespace Product.Infra.Data.SqlServer.Mappings
 				.HasColumnName("LgUsuario")
 				.IsRequired(true);
 
+			builder.Property(p => p.descricaoFornecedor)
+				.HasColumnName("descricaoFornecedor")
+				.IsRequired(true);
+
+			builder.Property(p => p.cnpj)
+				.HasColumnName("cnpjFornecedor")
+				.IsRequired(true);
 		}
 	}
 }

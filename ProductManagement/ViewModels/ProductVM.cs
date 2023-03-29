@@ -9,6 +9,7 @@ namespace Product.Api.ViewModels
 		public bool ativo;
 		public DateTime dataFabricao;
 		public DateTime dataValidade;
-		public int idFornecedor;
+		public string descricaoFornecedor;
+		public string cnpj;
 	}
 }

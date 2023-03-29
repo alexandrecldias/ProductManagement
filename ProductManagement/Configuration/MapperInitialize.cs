@@ -12,6 +12,7 @@ namespace Product.Api.Configuration
 			{
 				cfg.AddProfile(new DomainToViewModelMappingProfile());
 				cfg.AddProfile(new ViewModelToDomainMappingProfile());
+				cfg.AddProfile(new DtoToDomainMappingProfile());
 			});
 
 			mapper = config.CreateMapper();

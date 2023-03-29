@@ -10,6 +10,8 @@ namespace Product.Api.AutoMapper
 			{
 				ps.AddProfile(new DomainToViewModelMappingProfile());
 				ps.AddProfile(new ViewModelToDomainMappingProfile());
+				ps.AddProfile(new DtoToDomainMappingProfile());
+				
 			});
 		}
 	}
