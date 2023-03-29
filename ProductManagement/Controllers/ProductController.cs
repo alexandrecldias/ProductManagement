@@ -40,8 +40,6 @@ namespace Product.Api.Controllers
 		}
 
 		[HttpPost("persistir-produto")]
-		[Consumes("application/json")]
-		[Produces("application/json")]
 		public ActionResult PersistirProduto([FromBody] List<ProdutoDto> produto)
 		{
 			try
