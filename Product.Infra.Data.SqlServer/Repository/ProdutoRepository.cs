@@ -21,12 +21,6 @@ namespace Product.Infra.Data.SqlServer.Repository
 		{
 			var query = DbSet.AsQueryable().AsNoTracking();
 
-			query = FiltrarCampoEspecifico(filtro, query);
-
-			query = FiltrarTextoLivre(filtro, query);
-
-			query = Ordenar(filtro, query);
-
 			ContarTotalEPaginar(filtro, query);
 
 			return filtro;
@@ -37,15 +31,6 @@ namespace Product.Infra.Data.SqlServer.Repository
 
 		}
 
-		private IQueryable<Produto> Ordenar(FiltroGenericoDtoBase<Produto> filtro, IQueryable<Produto> query)
-		{
-			throw new NotImplementedException();
-		}
-
-		private IQueryable<Produto> FiltrarTextoLivre(FiltroGenericoDtoBase<Produto> filtro, IQueryable<Produto> query)
-		{
-			throw new NotImplementedException();
-		}
 
 		private IQueryable<Produto> FiltrarCampoEspecifico(FiltroGenericoDtoBase<Produto> filtro, IQueryable<Produto> query)
 		{
