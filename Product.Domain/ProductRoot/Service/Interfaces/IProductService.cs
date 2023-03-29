@@ -15,6 +15,5 @@ namespace Product.Domain.ProductRoot.Service.Interfaces
 		Produto ObterPorId(int idProduto);
 		RetornoDto Persistir(List<ProdutoDto> produtoDto);
 		RetornoDto CancelarProduto(int idProduto);
-		FiltroGenericoDtoBase<ProdutoDto> Filtrar(FiltroGenericoDtoBase<Produto> filtro);
 	}
 }

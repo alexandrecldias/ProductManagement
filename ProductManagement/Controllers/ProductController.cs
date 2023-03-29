@@ -70,23 +70,7 @@ namespace Product.Api.Controllers
 				return BadRequest(e.Message);
 			}
 		}
-
-
-
-		[HttpPost("filtrar")]
-		public IActionResult Filtrar([FromBody] FiltroGenericoDtoBase<Produto> filtro)
-		{
-			try
-			{
-				var result = _productService.Filtrar(filtro);
-
-				return Ok(result);
-			}
-			catch (Exception erro)
-			{
-				return StatusCode(500, erro.Message);
-			}
-		}
+	
 
 	}
 }

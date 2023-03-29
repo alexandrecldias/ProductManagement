@@ -128,25 +128,6 @@ namespace Product.Domain.ProductRoot.Service
 				return retorno;
 			}
 		}
-
-
-		public FiltroGenericoDtoBase<ProdutoDto> Filtrar(FiltroGenericoDtoBase<Produto> filtro)
-		{
-			try
-			{
-				var resultadoEntity = _produtoRepository.Filtrar(filtro);
-
-				var resultadoDto = _mapper.Map<FiltroGenericoDtoBase<ProdutoDto>>(resultadoEntity);
-
-				return resultadoDto;
-
-			}
-			catch (Exception)
-			{
-
-				throw;
-			}
-
-		}
+	
 	}
 }
