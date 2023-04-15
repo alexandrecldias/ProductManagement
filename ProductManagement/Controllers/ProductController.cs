@@ -23,7 +23,7 @@ namespace Product.Api.Controllers
 			_mapper = mapper;
 		}
 
-		[HttpGet(Name = "List")]
+		[HttpGet("~/ListAll")]
 		public ActionResult<IEnumerable<ProductVM>> Get()
 		{
 			var allProducts = _productService.ObterTodos();
@@ -31,7 +31,16 @@ namespace Product.Api.Controllers
 			return Ok(JsonConvert.SerializeObject(productVM));
 		}
 
-		[HttpGet("ObterPorId")]
+		[HttpGet("~/ListPagination")]
+		public ActionResult<IEnumerable<ProductVM>> Get([FromQuery] int skip,
+		[FromQuery] int take)
+		{
+			var allProducts = _productService.ObterTodos().Skip(skip).Take(take);
+			var productVM = _mapper.Map<IEnumerable<ProductVM>>(allProducts);
+			return Ok(JsonConvert.SerializeObject(productVM));
+		}
+
+		[HttpGet("GetById")]
 		public ActionResult<IEnumerable<ProductVM>> Get(int idProduto)
 		{
 			var product = _productService.ObterPorId(idProduto);
@@ -39,14 +48,14 @@ namespace Product.Api.Controllers
 			return Ok(JsonConvert.SerializeObject(productVM));
 		}
 
-		[HttpPost("persistir-produto")]
+		[HttpPost("persist-product")]
 		[Consumes("application/json")]
 		[Produces("application/json")]
 		public ActionResult PersistirProduto([FromBody] List<ProdutoDto> produto)
 		{
 			try
 			{
-				var result = _productService.Persistir(produto);
+				var result = _productService.Persist(produto);
 				return StatusCode(result.StatusCode, result.Mensagem);
 			}
 			catch (Exception e)
@@ -55,14 +64,14 @@ namespace Product.Api.Controllers
 			}
 		}
 
-		[HttpPost("cancelar-produto")]
+		[HttpPost("cancel-product")]
 		[Consumes("application/json")]
 		[Produces("application/json")]
-		public ActionResult CancelarProduto([FromBody] int idProduto)
+		public ActionResult CancelProduct([FromBody] int idProduto)
 		{
 			try
 			{
-				var result = _productService.CancelarProduto(idProduto);
+				var result = _productService.CancelProduct(idProduto);
 				return StatusCode(result.StatusCode, result.Mensagem);
 			}
 			catch (Exception e)

@@ -40,7 +40,7 @@ namespace Product.Domain.ProductRoot.Service
 			return todosProdutos;
 		}
 
-		public RetornoDto Persistir(List<ProdutoDto> produtosDto)
+		public RetornoDto Persist(List<ProdutoDto> produtosDto)
 		{
 			var retorno = new RetornoDto();
 
@@ -98,7 +98,7 @@ namespace Product.Domain.ProductRoot.Service
 			}
 		}
 
-		public RetornoDto CancelarProduto(int idProduto)
+		public RetornoDto CancelProduct(int idProduto)
 		{
 			var retorno = new RetornoDto();
 

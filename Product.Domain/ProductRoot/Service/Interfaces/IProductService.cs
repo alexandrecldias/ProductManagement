@@ -13,7 +13,7 @@ namespace Product.Domain.ProductRoot.Service.Interfaces
 	{
 		IEnumerable<Produto> ObterTodos();
 		Produto ObterPorId(int idProduto);
-		RetornoDto Persistir(List<ProdutoDto> produtoDto);
-		RetornoDto CancelarProduto(int idProduto);
+		RetornoDto Persist(List<ProdutoDto> produtoDto);
+		RetornoDto CancelProduct(int idProduto);
 	}
 }
