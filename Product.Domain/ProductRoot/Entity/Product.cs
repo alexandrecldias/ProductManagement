@@ -9,6 +9,10 @@ namespace Product.Domain.ProductRoot.Entity
 {
 	public class Product : EntityBase
 	{
+		[Key]
+		[Required]
+		public int id;
+		[Required(ErrorMessage = "Product title is required")]
 		public string descriptionProduct;
 		public bool active;
 		public DateTime manufacturingDate;
