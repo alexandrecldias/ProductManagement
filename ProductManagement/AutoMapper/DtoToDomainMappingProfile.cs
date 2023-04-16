@@ -9,8 +9,8 @@ namespace Product.Api.AutoMapper
 	{
 		public DtoToDomainMappingProfile()
 		{
-			CreateMap<Produto, ProdutoDto>();
-			CreateMap<ProdutoDto, Produto>();
+			CreateMap<Domain.ProductRoot.Entity.Product, ProductDto>();
+			CreateMap<ProductDto, Domain.ProductRoot.Entity.Product>();
 		}
 	}
 }

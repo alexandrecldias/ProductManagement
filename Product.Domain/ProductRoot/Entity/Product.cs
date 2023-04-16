@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Product.Domain.ProductRoot.Entity
 {
-	public class Produto : EntityBase
+	public class Product : EntityBase
 	{
-		public string descricaoProduto;
-		public bool ativo;
-		public DateTime dataFabricao;
-		public DateTime dataValidade;
+		public string descriptionProduct;
+		public bool active;
+		public DateTime manufacturingDate;
+		public DateTime validadeDate;
 		public string cnpj;
-		public string descricaoFornecedor;
+		public string descriptionSupplier;
 	}
 }

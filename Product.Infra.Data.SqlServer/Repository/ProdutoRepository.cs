@@ -11,13 +11,13 @@ using Utils;
 
 namespace Product.Infra.Data.SqlServer.Repository
 {
-	public class ProdutoRepository : BaseRepository<Produto>, IProdutoRepository
+	public class ProdutoRepository : BaseRepository<Domain.ProductRoot.Entity.Product>, IProdutoRepository
 	{
 		public ProdutoRepository(ServiceContext context) : base(context)
 		{
 		}
 
-		public FiltroGenericoDtoBase<Produto> Filtrar(FiltroGenericoDtoBase<Produto> filtro)
+		public FiltroGenericoDtoBase<Domain.ProductRoot.Entity.Product> Filtrar(FiltroGenericoDtoBase<Domain.ProductRoot.Entity.Product> filtro)
 		{
 			var query = DbSet.AsQueryable().AsNoTracking();
 

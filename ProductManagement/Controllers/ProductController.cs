@@ -51,11 +51,11 @@ namespace Product.Api.Controllers
 		[HttpPost("persist-product")]
 		[Consumes("application/json")]
 		[Produces("application/json")]
-		public ActionResult PersistirProduto([FromBody] List<ProdutoDto> produto)
+		public ActionResult PersistProduct([FromBody] List<ProductDto> product)
 		{
 			try
 			{
-				var result = _productService.Persist(produto);
+				var result = _productService.Persist(product);
 				return StatusCode(result.StatusCode, result.Mensagem);
 			}
 			catch (Exception e)

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Product.Infra.Data.SqlServer.Mappings
 {
-	public class ProdutoMap : IEntityTypeConfiguration<Produto>
+	public class ProdutoMap : IEntityTypeConfiguration<Domain.ProductRoot.Entity.Product>
 	{
-		public void Configure(EntityTypeBuilder<Produto> builder)
+		public void Configure(EntityTypeBuilder<Domain.ProductRoot.Entity.Product> builder)
 		{
 			builder.ToTable("produto");
 
@@ -21,19 +21,19 @@ namespace Product.Infra.Data.SqlServer.Mappings
 				.HasColumnName("id")
 				.IsRequired(true);
 
-			builder.Property(p => p.descricaoProduto)
+			builder.Property(p => p.descriptionProduct)
 				.HasColumnName("descricaoProduto")
 				.IsRequired(true);
 
-			builder.Property(p => p.ativo)
+			builder.Property(p => p.active)
 				.HasColumnName("ativo")
 				.IsRequired(true);
 		
-			builder.Property(p => p.dataFabricao)
+			builder.Property(p => p.manufacturingDate)
 				.HasColumnName("dataFabricao")
 				.IsRequired(true);
 
-			builder.Property(p => p.dataValidade)
+			builder.Property(p => p.validadeDate)
 				.HasColumnName("dataValidade")
 				.IsRequired(true);
 
@@ -45,7 +45,7 @@ namespace Product.Infra.Data.SqlServer.Mappings
 				.HasColumnName("LgUsuario")
 				.IsRequired(true);
 
-			builder.Property(p => p.descricaoFornecedor)
+			builder.Property(p => p.descriptionSupplier)
 				.HasColumnName("descricaoFornecedor")
 				.IsRequired(true);
 

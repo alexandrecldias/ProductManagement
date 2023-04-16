@@ -8,7 +8,7 @@ namespace Product.Api.AutoMapper
 	{
 		public ViewModelToDomainMappingProfile()
 		{
-			CreateMap<ProductVM, Produto>();
+			CreateMap<ProductVM, Domain.ProductRoot.Entity.Product>();
 		}
 	}
 }

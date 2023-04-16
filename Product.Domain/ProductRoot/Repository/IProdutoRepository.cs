@@ -8,8 +8,8 @@ using Utils;
 
 namespace Product.Domain.ProductRoot.Repository
 {
-	public interface IProdutoRepository : IBaseRepository<Produto>
+	public interface IProdutoRepository : IBaseRepository<Entity.Product>
 	{
-		FiltroGenericoDtoBase<Produto> Filtrar(FiltroGenericoDtoBase<Produto> filtro);
+		FiltroGenericoDtoBase<Entity.Product> Filtrar(FiltroGenericoDtoBase<Entity.Product> filtro);
 	}
 }

@@ -26,21 +26,21 @@ namespace Product.Domain.ProductRoot.Service
 			_mapper = mapper;
 		}
 
-		public IEnumerable<Produto> ObterTodos()
+		public IEnumerable<Entity.Product> ObterTodos()
 		{
 			var todosProdutos = _produtoRepository.BuscarTodos();
 
 			return todosProdutos;
 		}
 
-		public Produto ObterPorId(int idProduto)
+		public Entity.Product ObterPorId(int idProduto)
 		{
 			var todosProdutos = _produtoRepository.BuscarPorId(idProduto);
 
 			return todosProdutos;
 		}
 
-		public RetornoDto Persist(List<ProdutoDto> produtosDto)
+		public RetornoDto Persist(List<ProductDto> produtosDto)
 		{
 			var retorno = new RetornoDto();
 
@@ -48,24 +48,24 @@ namespace Product.Domain.ProductRoot.Service
 			{
 				foreach (var produtoDto in produtosDto)
 				{
-					var produto = _mapper.Map<Produto>(produtoDto);
+					var product = _mapper.Map<Entity.Product>(produtoDto);
 
-					if (produto.dataFabricao >= produto.dataValidade)
+					if (product.manufacturingDate >= product.validadeDate)
 					{
-						throw new Exception($"Data de Fabricação {produto.dataFabricao.ToString("ddMMyyyy")} do produto {produto.descricaoProduto} não pode ser maior que a data de Validade {produto.dataValidade.ToString("ddMMyyyy")}");
+						throw new Exception($"Data de Fabricação {product.validadeDate.ToString("ddMMyyyy")} do produto {product.descriptionProduct} não pode ser maior que a data de Validade {product.validadeDate.ToString("ddMMyyyy")}");
 					}
 
-					if (produto.Id != 0)
+					if (product.Id != 0)
 					{
-						var produtoJaExiste = _produtoRepository.BuscarPorId(produto.Id);
+						var produtoJaExiste = _produtoRepository.BuscarPorId(product.Id);
 
 						if (produtoJaExiste != null)
 						{
-							produtoJaExiste.descricaoFornecedor = produtoDto.DescricaoFornecedor;
+							produtoJaExiste.descriptionSupplier = produtoDto.DescriptionSupplier;
 							produtoJaExiste.cnpj = produtoDto.Cnpj;
-							produtoJaExiste.dataFabricao = produtoDto.DataFabricao;
-							produtoJaExiste.dataValidade = produtoDto.DataValidade;
-							produtoJaExiste.descricaoProduto = produtoDto.DescricaoProduto;
+							produtoJaExiste.manufacturingDate = produtoDto.ManufacturingDate;
+							produtoJaExiste.validadeDate = produtoDto.ValidadeDate;
+							produtoJaExiste.descriptionProduct = produtoDto.DescriptionProduct;
 							_produtoRepository.Update(produtoJaExiste);
 							_unitOfWork.Commit();
 							retorno.StatusCode = 200;
@@ -77,7 +77,7 @@ namespace Product.Domain.ProductRoot.Service
 					{
 						retorno.StatusCode = 201;
 						retorno.Mensagem = "Sucesso";
-						_produtoRepository.Adicionar(produto);
+						_produtoRepository.Adicionar(product);
 						_unitOfWork.Commit();
 					}
 
@@ -108,7 +108,7 @@ namespace Product.Domain.ProductRoot.Service
 
 				if (produto != null)
 				{
-					produto.ativo = false;
+					produto.active = false;
 					_produtoRepository.Update(produto);
 					_unitOfWork.Commit();
 				}

@@ -11,9 +11,9 @@ namespace Product.Domain.ProductRoot.Service.Interfaces
 {
 	public interface IProductService
 	{
-		IEnumerable<Produto> ObterTodos();
-		Produto ObterPorId(int idProduto);
-		RetornoDto Persist(List<ProdutoDto> produtoDto);
+		IEnumerable<Entity.Product> ObterTodos();
+		Entity.Product ObterPorId(int idProduto);
+		RetornoDto Persist(List<ProductDto> produtoDto);
 		RetornoDto CancelProduct(int idProduto);
 	}
 }

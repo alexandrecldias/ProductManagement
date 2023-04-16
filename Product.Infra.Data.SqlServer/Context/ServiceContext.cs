@@ -14,7 +14,7 @@ namespace Product.Infra.Data.SqlServer.Context
 		public ServiceContext(DbContextOptions<ServiceContext> options) : base(options)
 		{
 		}
-		public DbSet<Produto> Produto { get; set; }
+		public DbSet<Domain.ProductRoot.Entity.Product> Produto { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
